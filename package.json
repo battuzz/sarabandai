@@ -1,0 +1,38 @@
+{
+  "name": "react.dev",
+  "version": "0.0.0",
+  "main": "/src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.5",
+    "@mui/material": "^5.15.5",
+    "load-json-file": "^7.0.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-konva": "^18.2.10",
+    "react-router-dom": "^6.21.3",
+    "react-scripts": "^5.0.0",
+    "react-use-precision-timer": "^3.4.5",
+    "use-image": "^1.1.1",
+    "write-json-file": "^5.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

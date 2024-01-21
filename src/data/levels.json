@@ -1,0 +1,102 @@
+{
+    "levels" : [
+        {
+            "audioSource" : "./data/A_2020_Melodic_House_track_with_Acid_Synths_Rave_style.wav",
+            "question" : "Questa canzone è stata generata da una IA?",
+            "options" : [
+                "Si"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 0,
+            "endLevel" : false
+        },
+        {
+            "audioSource" : "./data/80s_blues_track_with_moog_bass_and_big_drums.wav",
+            "question" : "Che periodo storico è stato usato per generare questa canzone?",
+            "options" : [
+                "Anni '60",
+                "Anni '80",
+                "Anno 2300"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 1,
+            "endLevel" : false
+        },
+        
+
+        {
+            "audioSource" : "./data/A_2010_Trap_Beat_with_Gangsta_Vibes_and_Heavy_Synths.wav",
+            "question" : "Questa è la versione Trap di una canzone di quale compositore?",
+            "options" : [
+                "Mozart",
+                "Beethoven",
+                "Bach"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 2,
+            "endLevel" : false
+        },
+
+        {
+            "audioSource" : "./data/2020s_Techno_with_Heavy_Synth_Industrial_vibes_and_lofi.wav",
+            "question" : "Indovina il genere di questa canzone autogenerata:",
+            "options" : [
+                "Jazz",
+                "Epic metal",
+                "Techno",
+                "Orango tango"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 2,
+            "endLevel" : false
+        },
+
+        {
+            "audioSource" : "./data/CreatedSong.mp3",
+            "question" : "Questa canzone è stata autogenerata da una IA?",
+            "options" : [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 1,
+            "endLevel" : false
+        },
+
+        {
+            "audioSource" : "./data/the_sound_of_the_crocodile.wav",
+            "question" : "Questo è il verso di quale rettile?",
+            "options" : [
+                "Elefante",
+                "Coccodrillo",
+                "Gamberone"
+            ],
+            "showAnswersAtStart" : false,
+            "answerIdx" : 1,
+            "endLevel" : false
+        },
+
+        {
+            "audioSource" : "./data/A_Hard_Rock_song_with_Heavy_Drums_and_Heavy_electric_guitars.wav",
+            "question" : "Quale è il titolo di questa canzone, resa Hard Rock dall'IA?",
+            "options" : [
+                "Fur Elise",
+                "What is my destiny, Dragonball",
+                "Italodisco",
+                "Rondo alla turca"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 0,
+            "endLevel" : false
+        },
+
+        {
+            "audioSource" : "",
+            "question" : "",
+            "options" : [],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 0,
+            "endLevel" : true
+        }
+    ]
+}
