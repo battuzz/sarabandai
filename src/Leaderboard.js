@@ -1,4 +1,3 @@
-import leaderboard from './data/leaderboard.json'
 import { useEffect, useState } from 'react'
 import { TableContainer, Table, TableHead, TableBody, TableCell, TableRow, Paper } from '@mui/material'
 

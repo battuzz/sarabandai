@@ -14,8 +14,6 @@ import Pagination from '@mui/material/Pagination'
 import {Link} from 'react-router-dom'
 
 
-import leaderboard from './data/leaderboard.json';
-// import { writeJsonFile } from 'write-json-file';
 
 function formatString(totalMs) {
     const seconds = Math.floor(totalMs / 1000);
