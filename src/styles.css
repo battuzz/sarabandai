@@ -6,3 +6,12 @@ a {
 ul {
   list-style: none;
 }
+
+.css-lqq3n7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  background-color: rgb(25, 118, 210);
+  color: white;
+}
+.css-lqq3n7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  background-color: rgb(25, 118, 210)!important;
+  color:white;
+}

@@ -20,7 +20,7 @@ const Leaderboard = () => {
         ]
     }
     const sortedLeaderboard = [...leaderboard].sort(
-        (a, b) => a.score < b.score
+        (a, b) => a.score < b.score ? 1 : -1
     )
 
     return (
