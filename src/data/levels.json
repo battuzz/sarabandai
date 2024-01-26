@@ -10,6 +10,7 @@
             "answerIdx" : 0,
             "endLevel" : false
         },
+
         {
             "audioSource" : "./data/80s_blues_track_with_moog_bass_and_big_drums.wav",
             "question" : "Che periodo storico è stato usato per generare questa canzone?",
@@ -52,8 +53,20 @@
         },
 
         {
+            "audioSource" : "./data/AmourFake.mp3",
+            "question" : "(1) Questa canzone è stata generata da una IA?",
+            "options" : [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 0,
+            "endLevel" : false
+        },
+
+        {
             "audioSource" : "./data/CreatedSong.mp3",
-            "question" : "Questa canzone è stata generata da una IA?",
+            "question" : "(2) Questa canzone è stata generata da una IA?",
             "options" : [
                 "Si",
                 "No"
@@ -89,6 +102,49 @@
             "answerIdx" : 0,
             "endLevel" : false
         },
+
+        {
+            "audioSource" : "./data/A_grand_orchestral_arrangement_with_thunderous_percussion_epic_brass_fanfares_strings_creating_a_cinematic_atmosphere_fit_for_Star_wars.wav",
+            "question" : " Per quale grande colossal l'IA ha creato questa colonna sonora?",
+            "options" : [
+                "Iron man 4",
+                "Star Wars 10: Che la forza ci faccia dimenticare la trilogia 7/8/9",
+                "Oppenheimer 2",
+                "Suicide Squad 3"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 1,
+            "endLevel" : false
+        },
+
+        {
+            "audioSource" : "./data/Screaming_money_like_police_sirens.wav",
+            "question" : "Quale prompt è stato usato per generare questo suono?",
+            "options" : [
+                "Scimmia che urla come una sirena della polizia",
+                "Sirena della polizia che suona come una scimmia urlante",
+                "Soldi che urlano come sirena della polizia",
+                "Sirena della polizia che suona come soldi urlanti"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 2,
+            "endLevel" : false
+        },
+
+        {
+            "audioSource" : "./data/Fart.wav",
+            "question" : "Chi ha prodotto questo suono?",
+            "options" : [
+                "Marco Arena",
+                "Un altro membro dello staff MLModena",
+                "AudioGen",
+                "AI-Powered Synth Generator®"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 2,
+            "endLevel" : false
+        },
+
 
         {
             "audioSource" : "",

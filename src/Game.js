@@ -10,9 +10,13 @@ import PauseIcon from '@mui/icons-material/Pause'
 
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack';
-import Pagination from '@mui/material/Pagination'
-import {Link} from 'react-router-dom'
-import Box from '@mui/material/Box'
+import Pagination from '@mui/material/Pagination';
+import {Link} from 'react-router-dom';
+import Box from '@mui/material/Box';
+
+import { collection, addDoc } from "firebase/firestore"; 
+import { db } from "./Database";
+
 
 
 function formatString(totalMs) {
@@ -36,12 +40,13 @@ function Option({ optionName, onClick, enabled }) {
 }
 
 function OptionGroup({ options, setAnswer, enabled }) {
+    const width = options.length > 3 ? 6 : null;
     return (
         <>
         <Grid container spacing={2} justifyContent="space-evenly" alignItems="stretch">
             {options.map((opt, i) => {
                 return (
-                    <Grid item key={opt} xs justifyContent="center" sx={{display: 'flex'}}>
+                    <Grid item key={opt} xs={width} justifyContent="center" sx={{display: 'flex'}}>
                         <Option
                             optionName={opt}
                             onClick={(e) => { setAnswer(i) }}
@@ -159,6 +164,17 @@ const Game = () => {
                     score: score
                 }]
             ))
+
+            const updateLeaderboard = async (name, score) => {
+                const docRef = await addDoc(collection(db, "leaderboard"), {
+                    name: name,
+                    score: score
+                });
+            }
+
+            updateLeaderboard(gameState.playerName, score)
+                .catch(console.error)
+
         }
     }, [endLevel])
 
@@ -243,7 +259,7 @@ const Game = () => {
                 <div>
                     <h1>Istruzioni per giocare a SarabandAI</h1>
                     <p>
-                        Per questo gioco abbiamo usato <b>AudioCraft</b> per generare alcune tracce musicali, specificandone  <b>genere</b>, <b>anno</b>, <b>emozioni</b> oppure chiedendogli di modificare alcune tracce già esistenti,
+                        Per questo gioco abbiamo usato <b>MusicGen Large</b> per generare alcune tracce musicali, specificandone  <b>genere</b>, <b>anno</b>, <b>emozioni</b> oppure chiedendogli di modificare alcune tracce già esistenti,
                         ad esempio trasformando pezzi di musica classica in trap.
                     </p>
                     <p>
@@ -303,8 +319,16 @@ const Game = () => {
             }
 
             <Grid container marginTop={10}>
-                <Grid item xs={12}>
-                    <Pagination page={currentLevel + 1} count={levels.levels.length - 1} variant="outlined" hideNextButton hidePrevButton/>
+                <Grid item xs={12} justifyContent="center" display='flex'>
+                    <Pagination 
+                        page={currentLevel + 1} 
+                        count={levels.levels.length - 1} 
+                        variant="outlined" 
+                        hideNextButton 
+                        hidePrevButton
+                        boundaryCount={11}
+                        color='primary'
+                    />
                 </Grid>
             </Grid>
         </Stack>
