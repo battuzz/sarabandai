@@ -104,7 +104,7 @@
         },
 
         {
-            "audioSource" : "./data/A_grand_orchestral_arrangement_with_thunderous_percussion_epic_brass_fanfares_strings_creating_a_cinematic_atmosphere_fit_for_Star_wars.wav",
+            "audioSource" : "./data/A_grand_orchestral_arrangement_for_Star_wars.wav",
             "question" : " Per quale grande colossal l'IA ha creato questa colonna sonora?",
             "options" : [
                 "Iron man 4",
