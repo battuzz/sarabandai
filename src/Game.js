@@ -129,8 +129,8 @@ const Game = () => {
         ...otherLevelProps
     } = levels.levels[gameState.currentLevel]
 
-    const audioCorrect = new Audio(process.env.PUBLIC_URL + '/data/risposta corretta.m4a')
-    const audioWrong = new Audio(process.env.PUBLIC_URL + '/data/risposta sbagliata.m4a')
+    // const audioCorrect = new Audio(process.env.PUBLIC_URL + '/data/risposta corretta.m4a')
+    // const audioWrong = new Audio(process.env.PUBLIC_URL + '/data/risposta sbagliata.m4a')
 
     const [audio, setAudio] = useState(new Audio(process.env.PUBLIC_URL + audioSource))
     const stopwatch = useStopwatch();
@@ -198,9 +198,9 @@ const Game = () => {
 
     function setAnswer(idx) {
         if (hasStarted && currentAnswer == -1) {
-            const responseAudio = idx === answerIdx
-                ? audioCorrect
-                : audioWrong
+            // const responseAudio = idx === answerIdx
+            //     ? audioCorrect
+            //     : audioWrong
             // responseAudio.play()
 
             const timeTaken = stopwatch.getElapsedRunningTime()
