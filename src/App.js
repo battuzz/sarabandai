@@ -9,7 +9,7 @@ export default function App() {
     <div className="App">
       <CssBaseline />
       <Navbar />
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <Main />
       </Container>
     </div>

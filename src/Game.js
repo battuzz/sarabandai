@@ -11,12 +11,13 @@ import PauseIcon from '@mui/icons-material/Pause'
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack';
 import Pagination from '@mui/material/Pagination';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc } from "firebase/firestore";
 import { db } from "./Database";
 
+import parse from 'html-react-parser'
 
 
 function formatString(totalMs) {
@@ -28,34 +29,43 @@ function formatString(totalMs) {
 }
 
 function getScore(totalMs) {
-    const seconds = (totalMs / 1000) + 1
-    return Math.round(100 / seconds)
+    const seconds = (totalMs / 1000)
+    return Math.round(Math.max(0, 100 - 8 * Math.max(seconds - 1, 0)))
 }
 function getCurrentScore(totalMs) {
     return `Punteggio: ${getScore(totalMs)}`;
 }
 
-function Option({ optionName, onClick, enabled }) {
-    return <Button variant='outlined' size='large' onClick={onClick} disabled={!enabled}> {optionName}</Button>
+function Option({ optionName, onClick, enabled, borderColor }) {
+    return <Button
+        variant='outlined'
+        size='large'
+        onClick={onClick}
+        disabled={!enabled}
+        color={borderColor}
+    >
+        {optionName}
+    </Button>
 }
 
-function OptionGroup({ options, setAnswer, enabled }) {
+function OptionGroup({ options, setAnswer, enabled, showCorrectAnswer, correctAnswerIdx }) {
     const width = options.length > 3 ? 6 : null;
     return (
         <>
-        <Grid container spacing={2} justifyContent="space-evenly" alignItems="stretch">
-            {options.map((opt, i) => {
-                return (
-                    <Grid item key={opt} xs={width} justifyContent="center" sx={{display: 'flex'}}>
-                        <Option
-                            optionName={opt}
-                            onClick={(e) => { setAnswer(i) }}
-                            enabled = {enabled}
-                        />
-                    </Grid>
-                )
-            })}
-        </Grid>
+            <Grid container spacing={2} justifyContent="space-evenly" alignItems="stretch">
+                {options.map((opt, i) => {
+                    return (
+                        <Grid item key={opt} xs={width} justifyContent="center" sx={{ display: 'flex' }}>
+                            <Option
+                                optionName={opt}
+                                onClick={(e) => { setAnswer(i) }}
+                                enabled={enabled}
+                                borderColor={showCorrectAnswer ? (i == correctAnswerIdx ? 'success' : 'error') : undefined}
+                            />
+                        </Grid>
+                    )
+                })}
+            </Grid>
         </>
     )
 }
@@ -63,22 +73,22 @@ function OptionGroup({ options, setAnswer, enabled }) {
 function Stopwatch({ stopwatch }) {
     return (
         <>
-        <Stack direction='column' spacing={2} alignContent='center'>
-            <Stack >
-                <TimerRenderer
-                    timer={stopwatch}
-                    render={(t) => <>{formatString(t.getElapsedRunningTime())}</>}
-                    renderRate={10} // In milliseconds
-                />
+            <Stack direction='column' spacing={2} alignContent='center'>
+                <Stack >
+                    <TimerRenderer
+                        timer={stopwatch}
+                        render={(t) => <>{formatString(t.getElapsedRunningTime())}</>}
+                        renderRate={10} // In milliseconds
+                    />
+                </Stack>
+                <Stack  >
+                    <TimerRenderer
+                        timer={stopwatch}
+                        render={(t) => <>{getCurrentScore(t.getElapsedRunningTime())}</>}
+                        renderRate={10} // In milliseconds
+                    />
+                </Stack>
             </Stack>
-            <Stack  >
-                <TimerRenderer
-                    timer={stopwatch}
-                    render={(t) => <>{getCurrentScore(t.getElapsedRunningTime())}</>}
-                    renderRate={10} // In milliseconds
-                />
-            </Stack>
-        </Stack>
         </>
     )
 }
@@ -91,7 +101,9 @@ function getInitialGameState() {
         audioPlaying: false,
         history: [],
         enterPlayerName: true,
-        playerName: ""
+        playerName: "",
+        currentAnswer: -1,
+        timeTaken: undefined
     }
 }
 
@@ -102,6 +114,7 @@ const Game = () => {
         hasStarted,
         audioPlaying,
         enterPlayerName,
+        currentAnswer,
         ...otherGameStateProps
     } = gameState;
 
@@ -111,10 +124,15 @@ const Game = () => {
         options,
         endLevel,
         showAnswersAtStart,
+        answerIdx,
+        showCorrectAnswer,
         ...otherLevelProps
     } = levels.levels[gameState.currentLevel]
 
-    const [audio, setAudio] = useState(new Audio(audioSource))
+    const audioCorrect = new Audio(process.env.PUBLIC_URL + '/data/risposta corretta.m4a')
+    const audioWrong = new Audio(process.env.PUBLIC_URL + '/data/risposta sbagliata.m4a')
+
+    const [audio, setAudio] = useState(new Audio(process.env.PUBLIC_URL + audioSource))
     const stopwatch = useStopwatch();
 
     useEffect(() => {
@@ -135,7 +153,7 @@ const Game = () => {
 
     useEffect(() => {
         if (audioSource != "") {
-            let newAudio = new Audio(audioSource)
+            let newAudio = new Audio(process.env.PUBLIC_URL + audioSource)
             newAudio.loop = true
             setAudio(newAudio)
         }
@@ -179,19 +197,42 @@ const Game = () => {
     }, [endLevel])
 
     function setAnswer(idx) {
-        if (hasStarted) { 
+        if (hasStarted && currentAnswer == -1) {
+            const responseAudio = idx === answerIdx
+                ? audioCorrect
+                : audioWrong
+            // responseAudio.play()
+
+            const timeTaken = stopwatch.getElapsedRunningTime()
             const history = {
-                timeTaken: stopwatch.getElapsedRunningTime(),
+                timeTaken: timeTaken,
                 answerIdx: idx
             }
-            stopwatch.stop()
 
             setGameState(prevState => ({
                 ...prevState,
-                currentLevel: prevState.currentLevel + 1,
+                audioPlaying: false,
+                currentAnswer: idx,
+                timeTaken: timeTaken,
+                history: [...prevState.history, history]
+            }))
+        }
+    }
+
+    function nextLevel() {
+        if (currentAnswer != -1) {
+            // const history = {
+            //     timeTaken: gameState.timeTaken,
+            //     answerIdx: currentAnswer
+            // }
+            stopwatch.stop()
+            setGameState(prevState => ({
+                ...prevState,
                 hasStarted: false,
                 audioPlaying: false,
-                history: [...prevState.history, history]
+                currentLevel: prevState.currentLevel + 1,
+                currentAnswer: -1,
+                // history: [...prevState.history, history]
             }))
         }
     }
@@ -222,14 +263,13 @@ const Game = () => {
     const newGame = () => {
         setGameState(getInitialGameState());
     }
-
     const computeScore = () => {
         var totalScore = 0;
         for (let i = 0; i < gameState.history.length; i++) {
             let h = gameState.history[i]
             totalScore += h.answerIdx === levels.levels[i].answerIdx ? getScore(h.timeTaken) : 0
         }
-        
+
         return totalScore
     }
 
@@ -247,8 +287,8 @@ const Game = () => {
                         height={100}
                     >
                         <Stack direction="row" spacing={2} alignItems='stretch' justifyContent="center">
-                            <InputLabel sx={{alignSelf : 'center'}}>Nome:</InputLabel>
-                            <TextField id='name'/>
+                            <InputLabel sx={{ alignSelf: 'center' }}>Username:</InputLabel>
+                            <TextField id='name' />
                             <Button variant='outlined' size='large' type="submit">
                                 Inizia
                             </Button>
@@ -274,8 +314,6 @@ const Game = () => {
                     </h2>
                 </div>
             </Stack>
-
-
         )
     }
     else if (endLevel) {
@@ -288,7 +326,7 @@ const Game = () => {
                 <p>Punteggio: {score} </p>
 
                 <Button variant='outlined' onClick={newGame}>Nuova partita</Button>
-                <Link to='/leaderboard'> <Button variant='outlined'>Leaderboard</Button> </Link> 
+                <Link to='/leaderboard'> <Button variant='outlined'>Leaderboard</Button> </Link>
             </>
         )
     }
@@ -296,12 +334,15 @@ const Game = () => {
 
     return (
         <Stack direction="column">
-            <h2>Livello {gameState.currentLevel + 1} </h2>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <h2>Livello {gameState.currentLevel + 1} </h2>
+                <h2> Punteggio: {computeScore()} </h2>
+            </Box>
             <p>Premi play per cominciare</p>
             <Grid container justifyContent='center' alignItems='center' direction='row' columnSpacing={2}>
-                <Grid item xs={6} justifyContent="right" sx={{display: 'flex', paddingRight: '30px'}}>
-                    <Button sx={{borderRadius : '100%', 'width' : '100px', height: '100px', fontSize : '50px'}} variant="outlined" onClick={toggle}>
-                        {audioPlaying ? <PauseIcon fontSize='1rem' /> : <PlayArrowIcon fontSize='1rem'/>}
+                <Grid item xs={6} justifyContent="right" sx={{ display: 'flex', paddingRight: '30px' }}>
+                    <Button sx={{ borderRadius: '100%', 'width': '100px', height: '100px', fontSize: '50px' }} variant="outlined" onClick={toggle}>
+                        {audioPlaying ? <PauseIcon fontSize='1rem' /> : <PlayArrowIcon fontSize='1rem' />}
                     </Button>
                 </Grid>
                 <Grid item xs={6}>
@@ -309,22 +350,42 @@ const Game = () => {
                 </Grid>
             </Grid>
 
-            <Box >
-                <h2> {question} </h2>
+            <Box textAlign={'center'}>
+                <h2> {parse(question)} </h2>
             </Box>
 
-            { (showAnswersAtStart || hasStarted) 
-                ? <OptionGroup options={options} setAnswer={setAnswer} enabled={hasStarted} />
+            {(showAnswersAtStart || hasStarted)
+                ? <OptionGroup 
+                    options={options} 
+                    setAnswer={setAnswer} 
+                    enabled={hasStarted} 
+                    showCorrectAnswer={currentAnswer != -1 && showCorrectAnswer}
+                    correctAnswerIdx = {answerIdx}
+                />
                 : <p>Premi play per vedere le opzioni</p>
             }
 
+            {
+                currentAnswer == -1
+                    ? <span style={{ height: '160px' }}></span>
+                    : <Button
+                        sx={{ width: 0.25, marginLeft: 'auto', height: '60px', marginTop: '100px' }}
+                        variant='contained'
+                        size='large'
+                        onClick={nextLevel}
+                        disabled={currentAnswer == -1}
+                    > Prossimo livello
+                    </Button>
+            }
+
+
             <Grid container marginTop={10}>
                 <Grid item xs={12} justifyContent="center" display='flex'>
-                    <Pagination 
-                        page={currentLevel + 1} 
-                        count={levels.levels.length - 1} 
-                        variant="outlined" 
-                        hideNextButton 
+                    <Pagination
+                        page={currentLevel + 1}
+                        count={levels.levels.length - 1}
+                        variant="outlined"
+                        hideNextButton
                         hidePrevButton
                         boundaryCount={11}
                         color='primary'

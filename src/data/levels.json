@@ -1,5 +1,6 @@
 {
     "levels" : [
+
         {
             "audioSource" : "./data/A_2020_Melodic_House_track_with_Acid_Synths_Rave_style.wav",
             "question" : "Questa canzone è stata generata da una IA?",
@@ -8,12 +9,13 @@
             ],
             "showAnswersAtStart" : true,
             "answerIdx" : 0,
-            "endLevel" : false
+            "endLevel" : false,
+            "showCorrectAnswer" : true
         },
 
         {
             "audioSource" : "./data/80s_blues_track_with_moog_bass_and_big_drums.wav",
-            "question" : "Che periodo storico è stato usato per generare questa canzone?",
+            "question" : "Che <u>periodo storico</u> è stato usato per generare questa canzone?",
             "options" : [
                 "Anni '60",
                 "Anni '80",
@@ -21,13 +23,14 @@
             ],
             "showAnswersAtStart" : true,
             "answerIdx" : 1,
-            "endLevel" : false
+            "endLevel" : false,
+            "showCorrectAnswer" : true
         },
         
 
         {
             "audioSource" : "./data/A_2010_Trap_Beat_with_Gangsta_Vibes_and_Heavy_Synths.wav",
-            "question" : "Questa è la versione Trap di una canzone di quale compositore?",
+            "question" : "Questa è la versione, resa Trap dall'AI, di una canzone di <u>quale compositore</u>?",
             "options" : [
                 "Mozart",
                 "Beethoven",
@@ -35,12 +38,13 @@
             ],
             "showAnswersAtStart" : true,
             "answerIdx" : 2,
-            "endLevel" : false
+            "endLevel" : false,
+            "showCorrectAnswer" : true
         },
 
         {
             "audioSource" : "./data/2020s_Techno_with_Heavy_Synth_Industrial_vibes_and_lofi.wav",
-            "question" : "Questa è una canzone generata specificando un genere musicale. Quale?",
+            "question" : "Questa è una canzone generata specificando un <u>genere musicale</u>. Quale?",
             "options" : [
                 "Jazz",
                 "Epic metal",
@@ -49,31 +53,23 @@
             ],
             "showAnswersAtStart" : true,
             "answerIdx" : 2,
-            "endLevel" : false
+            "endLevel" : false,
+            "showCorrectAnswer" : true
         },
 
         {
-            "audioSource" : "./data/AmourFake.mp3",
-            "question" : "(1) Questa canzone è stata generata da una IA?",
+            "audioSource" : "./data/fur_elise.wav",
+            "question" : "Quale è il titolo di questa canzone, resa Hard Rock dall'IA?",
             "options" : [
-                "Si",
-                "No"
+                "Für Elise",
+                "What is my destiny, Dragonball",
+                "Italodisco",
+                "Rondo alla turca"
             ],
             "showAnswersAtStart" : true,
             "answerIdx" : 0,
-            "endLevel" : false
-        },
-
-        {
-            "audioSource" : "./data/CreatedSong.mp3",
-            "question" : "(2) Questa canzone è stata generata da una IA?",
-            "options" : [
-                "Si",
-                "No"
-            ],
-            "showAnswersAtStart" : true,
-            "answerIdx" : 1,
-            "endLevel" : false
+            "endLevel" : false,
+            "showCorrectAnswer" : true
         },
 
         {
@@ -86,21 +82,8 @@
             ],
             "showAnswersAtStart" : false,
             "answerIdx" : 1,
-            "endLevel" : false
-        },
-
-        {
-            "audioSource" : "./data/A_Hard_Rock_song_with_Heavy_Drums_and_Heavy_electric_guitars.wav",
-            "question" : "Quale è il titolo di questa canzone, resa Hard Rock dall'IA?",
-            "options" : [
-                "Für Elise",
-                "What is my destiny, Dragonball",
-                "Italodisco",
-                "Rondo alla turca"
-            ],
-            "showAnswersAtStart" : true,
-            "answerIdx" : 0,
-            "endLevel" : false
+            "endLevel" : false,
+            "showCorrectAnswer" : true
         },
 
         {
@@ -114,37 +97,114 @@
             ],
             "showAnswersAtStart" : true,
             "answerIdx" : 1,
-            "endLevel" : false
+            "endLevel" : false,
+            "showCorrectAnswer" : true
         },
 
         {
-            "audioSource" : "./data/Screaming_money_like_police_sirens.wav",
-            "question" : "Quale prompt è stato usato per generare questo suono?",
+            "audioSource" : "./data/pokemon.mp3",
+            "question" : "(1) Questa canzone sui <u>Pokemon</u> è stata generata da una IA?",
             "options" : [
-                "Scimmia che urla come una sirena della polizia",
-                "Sirena della polizia che suona come una scimmia urlante",
-                "Soldi che urlano come sirena della polizia",
-                "Sirena della polizia che suona come soldi urlanti"
+                "Si",
+                "No"
             ],
             "showAnswersAtStart" : true,
-            "answerIdx" : 2,
-            "endLevel" : false
+            "answerIdx" : 0,
+            "endLevel" : false,
+            "showCorrectAnswer" : true
         },
 
         {
-            "audioSource" : "./data/Fart.wav",
-            "question" : "Chi ha prodotto questo suono?",
+            "audioSource" : "./data/JackSparrow.mp3",
+            "question" : "(2) Questa canzone su <u>Jack Sparrow</u> è stata generata da una IA?",
             "options" : [
-                "Marco Arena",
-                "Un altro membro dello staff MLModena",
-                "AudioGen",
-                "AI-Powered Synth Generator®"
+                "Si",
+                "No"
             ],
             "showAnswersAtStart" : true,
-            "answerIdx" : 2,
-            "endLevel" : false
+            "answerIdx" : 1,
+            "endLevel" : false,
+            "showCorrectAnswer" : true
         },
 
+        {
+            "audioSource" : "./data/yogurt.mp3",
+            "question" : "(3) Questa canzone sullo <u>Yogurt</u> è stata generata da una IA?",
+            "options" : [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 1,
+            "endLevel" : false,
+            "showCorrectAnswer" : true
+        },
+
+        {
+            "audioSource" : "./data/conan.mp3",
+            "question" : "(4) Questa canzone per un <u>Anime</u> è stata generata da una IA?",
+            "options" : [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 0,
+            "endLevel" : false,
+            "showCorrectAnswer" : true
+        },
+
+        {
+            "audioSource" : "./data/muffins.mp3",
+            "question" : "(5) Questa canzone sui <u>Muffin</u> è stata generata da una IA?",
+            "options" : [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 0,
+            "endLevel" : false,
+            "showCorrectAnswer" : true
+        },
+
+        {
+            "audioSource" : "./data/rossana.mp3",
+            "question" : "(6) Questo remix metal del cartone <u>Rossana</u> è stata generato da una IA?",
+            "options" : [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 0,
+            "endLevel" : false,
+            "showCorrectAnswer" : true
+        },
+
+
+        {
+            "audioSource" : "./data/frozen.mp3",
+            "question" : "(7) Questo remix rock del film <u>Frozen</u> è stata generato da una IA?",
+            "options" : [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 1,
+            "endLevel" : false,
+            "showCorrectAnswer" : true
+        },
+
+        {
+            "audioSource" : "./data/maiahiii.mp3",
+            "question" : "(8) Questo <u>remix</u> è stata generato da una IA?",
+            "options" : [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 1,
+            "endLevel" : false,
+            "showCorrectAnswer" : true
+        },
 
         {
             "audioSource" : "",
@@ -152,7 +212,8 @@
             "options" : [],
             "showAnswersAtStart" : true,
             "answerIdx" : 0,
-            "endLevel" : true
+            "endLevel" : true,
+            "showCorrectAnswer" : false
         }
     ]
 }
