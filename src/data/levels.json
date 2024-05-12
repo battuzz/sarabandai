@@ -2,7 +2,7 @@
     "levels" : [
 
         {
-            "audioSource" : "./data/A_2020_Melodic_House_track_with_Acid_Synths_Rave_style.wav",
+            "audioSource" : "/data/A_2020_Melodic_House_track_with_Acid_Synths_Rave_style.wav",
             "question" : "Questa canzone è stata generata da una IA?",
             "options" : [
                 "Si"
@@ -14,7 +14,7 @@
         },
 
         {
-            "audioSource" : "./data/80s_blues_track_with_moog_bass_and_big_drums.wav",
+            "audioSource" : "/data/80s_blues_track_with_moog_bass_and_big_drums.wav",
             "question" : "Che <u>periodo storico</u> è stato usato per generare questa canzone?",
             "options" : [
                 "Anni '60",
@@ -29,7 +29,7 @@
         
 
         {
-            "audioSource" : "./data/A_2010_Trap_Beat_with_Gangsta_Vibes_and_Heavy_Synths.wav",
+            "audioSource" : "/data/A_2010_Trap_Beat_with_Gangsta_Vibes_and_Heavy_Synths.wav",
             "question" : "Questa è la versione, resa Trap dall'AI, di una canzone di <u>quale compositore</u>?",
             "options" : [
                 "Mozart",
@@ -43,7 +43,7 @@
         },
 
         {
-            "audioSource" : "./data/2020s_Techno_with_Heavy_Synth_Industrial_vibes_and_lofi.wav",
+            "audioSource" : "/data/2020s_Techno_with_Heavy_Synth_Industrial_vibes_and_lofi.wav",
             "question" : "Questa è una canzone generata specificando un <u>genere musicale</u>. Quale?",
             "options" : [
                 "Jazz",
@@ -58,7 +58,7 @@
         },
 
         {
-            "audioSource" : "./data/fur_elise.wav",
+            "audioSource" : "/data/fur_elise.wav",
             "question" : "Quale è il titolo di questa canzone, resa Hard Rock dall'IA?",
             "options" : [
                 "Für Elise",
@@ -73,7 +73,7 @@
         },
 
         {
-            "audioSource" : "./data/the_sound_of_the_crocodile.wav",
+            "audioSource" : "/data/the_sound_of_the_crocodile.wav",
             "question" : "Abbiamo chiesto alla IA di generare il verso di un rettile. Quale?",
             "options" : [
                 "Elefante",
@@ -87,7 +87,7 @@
         },
 
         {
-            "audioSource" : "./data/A_grand_orchestral_arrangement_for_Star_wars.wav",
+            "audioSource" : "/data/A_grand_orchestral_arrangement_for_Star_wars.wav",
             "question" : " Per quale grande colossal l'IA ha creato questa colonna sonora?",
             "options" : [
                 "Iron man 4",
@@ -102,7 +102,7 @@
         },
 
         {
-            "audioSource" : "./data/pokemon.mp3",
+            "audioSource" : "/data/pokemon.mp3",
             "question" : "(1) Questa canzone sui <u>Pokemon</u> è stata generata da una IA?",
             "options" : [
                 "Si",
@@ -115,7 +115,7 @@
         },
 
         {
-            "audioSource" : "./data/JackSparrow.mp3",
+            "audioSource" : "/data/JackSparrow.mp3",
             "question" : "(2) Questa canzone su <u>Jack Sparrow</u> è stata generata da una IA?",
             "options" : [
                 "Si",
@@ -128,7 +128,7 @@
         },
 
         {
-            "audioSource" : "./data/yogurt.mp3",
+            "audioSource" : "/data/yogurt.mp3",
             "question" : "(3) Questa canzone sullo <u>Yogurt</u> è stata generata da una IA?",
             "options" : [
                 "Si",
@@ -141,7 +141,7 @@
         },
 
         {
-            "audioSource" : "./data/conan.mp3",
+            "audioSource" : "/data/conan.mp3",
             "question" : "(4) Questa canzone per un <u>Anime</u> è stata generata da una IA?",
             "options" : [
                 "Si",
@@ -154,7 +154,7 @@
         },
 
         {
-            "audioSource" : "./data/muffins.mp3",
+            "audioSource" : "/data/muffins.mp3",
             "question" : "(5) Questa canzone sui <u>Muffin</u> è stata generata da una IA?",
             "options" : [
                 "Si",
@@ -167,7 +167,7 @@
         },
 
         {
-            "audioSource" : "./data/rossana.mp3",
+            "audioSource" : "/data/rossana.mp3",
             "question" : "(6) Questo remix metal del cartone <u>Rossana</u> è stata generato da una IA?",
             "options" : [
                 "Si",
@@ -181,7 +181,7 @@
 
 
         {
-            "audioSource" : "./data/frozen.mp3",
+            "audioSource" : "/data/frozen.mp3",
             "question" : "(7) Questo remix rock del film <u>Frozen</u> è stata generato da una IA?",
             "options" : [
                 "Si",
@@ -194,7 +194,7 @@
         },
 
         {
-            "audioSource" : "./data/maiahiii.mp3",
+            "audioSource" : "/data/maiahiii.mp3",
             "question" : "(8) Questo <u>remix</u> è stata generato da una IA?",
             "options" : [
                 "Si",
