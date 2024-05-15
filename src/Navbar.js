@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 
 import {Link} from 'react-router-dom'
 
-export default function Navbar() {
+export default function Navbar( {setMain} ) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -15,8 +15,9 @@ export default function Navbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             SarabandAI
           </Typography>
-          <a href="/sarabandai"><Button color="inherit">Nuova partita</Button></a>
-          <Link to="/leaderboard"><Button color="inherit">Leaderboard</Button></Link>
+          <a onClick={() => setMain(true)}><Button color="inherit">Nuova partita</Button></a>
+          <a onClick={() => setMain(false)}><Button color='inherit'>Leaderboard</Button></a>
+          {/* <Link to="/leaderboard"><Button color="inherit">Leaderboard</Button></Link> */}
         </Toolbar>
       </AppBar>
     </Box>

@@ -30,7 +30,7 @@ function formatString(totalMs) {
 
 function getScore(totalMs) {
     const seconds = (totalMs / 1000)
-    return Math.round(Math.max(0, 100 - 8 * Math.max(seconds - 1, 0)))
+    return Math.round(Math.max(0, 100 - 5 * Math.max(seconds - 1.5, 0)))
 }
 function getCurrentScore(totalMs) {
     return `Punteggio: ${getScore(totalMs)}`;
@@ -326,7 +326,7 @@ const Game = () => {
                 <p>Punteggio: {score} </p>
 
                 <Button variant='outlined' onClick={newGame}>Nuova partita</Button>
-                <Link to='/leaderboard'> <Button variant='outlined'>Leaderboard</Button> </Link>
+                {/* <Link to='/leaderboard'> <Button variant='outlined'>Leaderboard</Button> </Link> */}
             </>
         )
     }
