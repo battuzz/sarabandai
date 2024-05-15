@@ -15,12 +15,12 @@ const Leaderboard = () => {
         {
             name: 'Baseline #1',
             baseline: true,
-            score: 900
+            score: 800
         }, 
         {
             name: 'Baseline #2',
             baseline: true,
-            score: 1300
+            score: 1200
         }, 
         {
             name: 'Marco Arena',

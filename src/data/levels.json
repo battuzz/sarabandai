@@ -73,20 +73,6 @@
         },
 
         {
-            "audioSource" : "/data/the_sound_of_the_crocodile.wav",
-            "question" : "Per rispondere a un dilemma dello Zecchino d'oro, abbiamo chiesto alla IA di generare il verso di un <u>rettile</u>. Quale?",
-            "options" : [
-                "Elefante",
-                "Coccodrillo",
-                "Gamberone"
-            ],
-            "showAnswersAtStart" : false,
-            "answerIdx" : 1,
-            "endLevel" : false,
-            "showCorrectAnswer" : true
-        },
-
-        {
             "audioSource" : "/data/A_grand_orchestral_arrangement_for_Star_wars.wav",
             "question" : " Per quale <u>grande colossal</u> l'IA ha creato questa colonna sonora?",
             "options" : [
@@ -199,6 +185,19 @@
             "options" : [
                 "Si",
                 "No"
+            ],
+            "showAnswersAtStart" : true,
+            "answerIdx" : 1,
+            "endLevel" : false,
+            "showCorrectAnswer" : true
+        },
+
+        {
+            "audioSource" : "/data/DojaSarabanDAI.mp3",
+            "question" : "Quale elemento della canzone è stato generato dalla IA?",
+            "options" : [
+                "Il beat stile house",
+                "La voce"
             ],
             "showAnswersAtStart" : true,
             "answerIdx" : 1,
