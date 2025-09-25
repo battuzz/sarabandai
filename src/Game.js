@@ -305,15 +305,16 @@ const Game = () => {
             }]
         ))
 
-        // const updateLeaderboard = async (name, score) => {
-        //     const docRef = await addDoc(collection(db, "leaderboard"), {
-        //         name: name,
-        //         score: score
-        //     });
-        // }
+        const updateLeaderboard = async (name, score) => {
+            const docRef = await addDoc(collection(db, "leaderboard"), {
+                name: name,
+                score: score,
+                player_id: gameState.playerId
+            });
+        }
 
-        // updateLeaderboard(gameState.playerName, score)
-        //     .catch(console.error)
+        updateLeaderboard(gameState.playerName, score)
+            .catch(console.error)
 
         // console.log(gameState)
         // const score = computeScore();
