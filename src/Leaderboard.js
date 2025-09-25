@@ -4,61 +4,33 @@ import { Button, Grid, Box } from '@mui/material'
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./Database"
 
-const Leaderboard = () => {
+const Leaderboard = ({ username = null }) => {
     const [leaderboard, setLeaderboard] = useState([])
     const baselines = [
         {
             name: 'Random agent 😎',
             baseline: true,
-            score: 650
+            score: 400
         },
         {
-            name: 'Baseline #1',
+            name: 'Giorgia Franchini',
             baseline: true,
-            score: 800
-        }, 
-        {
-            name: 'Baseline #2',
-            baseline: true,
-            score: 1200
-        }, 
-        {
-            name: 'Marco Arena',
-            baseline: true,
-            label: 'Over 9000',
-            score: 10000
+            score: 999,
+            label: 'Miaooow! 🐱'
         },
-        // {
-        //     name: 'Giorgia Franchini',
-        //     baseline: true,
-        //     score: 999,
-        //     label: 'NaN'
-        // }, 
     ]
 
+
     useEffect(() => {
-        const fetchLeaderboard = async () => {
-            const querySnapshot = await getDocs(collection(db, "leaderboard"));
-            const entries = querySnapshot.docs.map((doc) => doc.data());
-
-            let all_entries = entries.concat(baselines)
-            all_entries.sort((a, b) => a.score < b.score ? 1 : -1)
-            setLeaderboard(all_entries)
+        console.log('Fetching leaderboard!');
+        var entries = JSON.parse(localStorage.getItem('LEADERBOARD2'))
+        if (entries === null) {
+            entries = []
         }
-
-        fetchLeaderboard()
-            .catch(console.error)
+        let all_entries = entries.concat(baselines)
+        all_entries.sort((a, b) => a.score < b.score ? 1 : -1)
+        setLeaderboard(all_entries)
     }, [])
-
-    // useEffect(() => {
-    //     var entries = JSON.parse(localStorage.getItem('LEADERBOARD'))
-    //     if (entries === null) {
-    //         entries = []
-    //     }
-    //     let all_entries = entries.concat(baselines)
-    //     all_entries.sort((a, b) => a.score < b.score ? 1 : -1)
-    //     setLeaderboard(all_entries)
-    // }, [])
 
     return (
         <>
@@ -77,12 +49,12 @@ const Leaderboard = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {leaderboard.map((row) => (
+                        {leaderboard.map((row, i) => (
                             <TableRow
-                                key={row.name}
+                                key={i}
                                 sx={{
                                     '&:last-child td, &:last-child th': { border: 0 }, 'backgroundColor':
-                                        row.baseline ? '#dddddd' : '#ffffff'
+                                        row.baseline ? '#dddddd' : ((username == row.name) ? '#ffffc5' : '#ffffff')
                                 }}
                             >
                                 <TableCell component="th" scope="row">
@@ -95,7 +67,7 @@ const Leaderboard = () => {
                         ))}
                     </TableBody>
                 </Table>
-            </TableContainer>
+            </TableContainer >
         </>
     )
 }

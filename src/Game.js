@@ -14,6 +14,7 @@ import Pagination from '@mui/material/Pagination';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
+import Leaderboard from "./Leaderboard";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "./Database";
 
@@ -37,12 +38,13 @@ function getCurrentScore(totalMs) {
 }
 
 function Option({ optionName, onClick, enabled, borderColor }) {
+    const bgcolor = borderColor == 'success' ? 'rgba(0, 255, 0, 0.5)' : (borderColor == 'error' ? 'rgba(255, 0, 0, 0.5)' : '#ffffff');
     return <Button
         variant='outlined'
         size='large'
         onClick={onClick}
         disabled={!enabled}
-        color={borderColor}
+        sx={{ backgroundColor: bgcolor, '&:hover': { backgroundColor: bgcolor } }}
     >
         {optionName}
     </Button>
@@ -167,35 +169,6 @@ const Game = () => {
         };
     }, []);
 
-    useEffect(() => {
-        if (endLevel === true) {
-            // Update leaderboard
-            const score = computeScore();
-            var leaderboard = JSON.parse(localStorage.getItem('LEADERBOARD'))
-            if (leaderboard === null) {
-                leaderboard = []
-            }
-            localStorage.setItem('LEADERBOARD', JSON.stringify(
-                [...leaderboard,
-                {
-                    name: gameState.playerName,
-                    score: score
-                }]
-            ))
-
-            const updateLeaderboard = async (name, score) => {
-                const docRef = await addDoc(collection(db, "leaderboard"), {
-                    name: name,
-                    score: score
-                });
-            }
-
-            updateLeaderboard(gameState.playerName, score)
-                .catch(console.error)
-
-        }
-    }, [endLevel])
-
     function setAnswer(idx) {
         if (hasStarted && currentAnswer == -1) {
             // const responseAudio = idx === answerIdx
@@ -317,8 +290,31 @@ const Game = () => {
         )
     }
     else if (endLevel) {
-        console.log(gameState)
         const score = computeScore();
+        var leaderboard = JSON.parse(localStorage.getItem('LEADERBOARD2'))
+        if (leaderboard === null) {
+            leaderboard = []
+        }
+        localStorage.setItem('LEADERBOARD2', JSON.stringify(
+            [...leaderboard,
+            {
+                name: gameState.playerName,
+                score: score
+            }]
+        ))
+
+        const updateLeaderboard = async (name, score) => {
+            const docRef = await addDoc(collection(db, "leaderboard"), {
+                name: name,
+                score: score
+            });
+        }
+
+        updateLeaderboard(gameState.playerName, score)
+            .catch(console.error)
+
+        // console.log(gameState)
+        // const score = computeScore();
 
         return (
             <>
@@ -326,6 +322,7 @@ const Game = () => {
                 <p>Punteggio: {score} </p>
 
                 <Button variant='outlined' onClick={newGame}>Nuova partita</Button>
+                <Leaderboard username={gameState.playerName} />
                 {/* <Link to='/leaderboard'> <Button variant='outlined'>Leaderboard</Button> </Link> */}
             </>
         )
@@ -355,12 +352,12 @@ const Game = () => {
             </Box>
 
             {(showAnswersAtStart || hasStarted)
-                ? <OptionGroup 
-                    options={options} 
-                    setAnswer={setAnswer} 
-                    enabled={hasStarted} 
+                ? <OptionGroup
+                    options={options}
+                    setAnswer={setAnswer}
+                    enabled={hasStarted}
                     showCorrectAnswer={currentAnswer != -1 && showCorrectAnswer}
-                    correctAnswerIdx = {answerIdx}
+                    correctAnswerIdx={answerIdx}
                 />
                 : <p>Premi play per vedere le opzioni</p>
             }
