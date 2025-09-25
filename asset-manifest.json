@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/sarabandai/static/css/main.8697f078.css",
-    "main.js": "/sarabandai/static/js/main.e81fd67f.js",
+    "main.js": "/sarabandai/static/js/main.3b11438f.js",
     "index.html": "/sarabandai/index.html",
     "main.8697f078.css.map": "/sarabandai/static/css/main.8697f078.css.map",
-    "main.e81fd67f.js.map": "/sarabandai/static/js/main.e81fd67f.js.map"
+    "main.3b11438f.js.map": "/sarabandai/static/js/main.3b11438f.js.map"
   },
   "entrypoints": [
     "static/css/main.8697f078.css",
-    "static/js/main.e81fd67f.js"
+    "static/js/main.3b11438f.js"
   ]
 }
