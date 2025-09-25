@@ -27,9 +27,21 @@ const Leaderboard = ({ username = null }) => {
         if (entries === null) {
             entries = []
         }
+        // Filter duplicates by entry.playerId, keep highest score
+
+
         let all_entries = entries.concat(baselines)
-        all_entries.sort((a, b) => a.score < b.score ? 1 : -1)
-        setLeaderboard(all_entries)
+        console.log(all_entries)
+        // Remove duplicates by playerId, keep first occurrence
+        const seen = new Set()
+        const filtered_entries = all_entries.filter(entry => {
+            if (!entry.player_id) return true // keep entries without playerId
+            if (seen.has(entry.player_id)) return false
+            seen.add(entry.player_id)
+            return true
+        })
+        filtered_entries.sort((a, b) => a.score < b.score ? 1 : -1)
+        setLeaderboard(filtered_entries)
     }, [])
 
     return (
@@ -54,7 +66,7 @@ const Leaderboard = ({ username = null }) => {
                                 key={i}
                                 sx={{
                                     '&:last-child td, &:last-child th': { border: 0 }, 'backgroundColor':
-                                        row.baseline ? '#dddddd' : ((username == row.name) ? '#ffffc5' : '#ffffff')
+                                        row.baseline ? '#dddddd' : ((username == row.player_id) ? '#ffffc5' : '#ffffff')
                                 }}
                             >
                                 <TableCell component="th" scope="row">

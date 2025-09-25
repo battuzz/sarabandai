@@ -226,6 +226,7 @@ const Game = () => {
             setGameState({
                 ...gameState,
                 playerName: enteredName,
+                playerId: Math.random().toString(36).substring(2, 15),
                 enterPlayerName: false,
                 hasStarted: false,
                 audioPlaying: false,
@@ -291,27 +292,28 @@ const Game = () => {
     }
     else if (endLevel) {
         const score = computeScore();
-        var leaderboard = JSON.parse(localStorage.getItem('LEADERBOARD2'))
-        if (leaderboard === null) {
-            leaderboard = []
-        }
+        var leaderboard = JSON.parse(localStorage.getItem('LEADERBOARD2') ?? "[]")
+        // if (leaderboard === null) {
+        //     leaderboard = []
+        // }
         localStorage.setItem('LEADERBOARD2', JSON.stringify(
             [...leaderboard,
             {
                 name: gameState.playerName,
+                player_id: gameState.playerId,
                 score: score
             }]
         ))
 
-        const updateLeaderboard = async (name, score) => {
-            const docRef = await addDoc(collection(db, "leaderboard"), {
-                name: name,
-                score: score
-            });
-        }
+        // const updateLeaderboard = async (name, score) => {
+        //     const docRef = await addDoc(collection(db, "leaderboard"), {
+        //         name: name,
+        //         score: score
+        //     });
+        // }
 
-        updateLeaderboard(gameState.playerName, score)
-            .catch(console.error)
+        // updateLeaderboard(gameState.playerName, score)
+        //     .catch(console.error)
 
         // console.log(gameState)
         // const score = computeScore();
@@ -322,7 +324,7 @@ const Game = () => {
                 <p>Punteggio: {score} </p>
 
                 <Button variant='outlined' onClick={newGame}>Nuova partita</Button>
-                <Leaderboard username={gameState.playerName} />
+                <Leaderboard username={gameState.playerId} />
                 {/* <Link to='/leaderboard'> <Button variant='outlined'>Leaderboard</Button> </Link> */}
             </>
         )

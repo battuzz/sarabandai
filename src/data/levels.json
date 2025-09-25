@@ -1,8 +1,20 @@
 {
     "levels": [
         {
-            "audioSource": "/data/pokemon.mp3",
-            "question": "(1) Questa canzone sui <u>Pokemon</u> è stata generata da una IA?",
+            "audioSource": "/data/city-cant-hold-us-no-ai.mp3",
+            "question": "(1) Questa canzone è stata generata o remixata da una AI?",
+            "options": [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart": true,
+            "answerIdx": 1,
+            "endLevel": false,
+            "showCorrectAnswer": true
+        },
+        {
+            "audioSource": "/data/AI_GrimeDubstep.mp3",
+            "question": "(2) Questa canzone è stata generata o remixata da una AI?",
             "options": [
                 "Si",
                 "No"
@@ -13,8 +25,8 @@
             "showCorrectAnswer": true
         },
         {
-            "audioSource": "/data/JackSparrow.mp3",
-            "question": "(2) Questa canzone su <u>Jack Sparrow</u> è stata generata da una IA?",
+            "audioSource": "/data/fur-elise-rock-no-ai.mp3",
+            "question": "(3) Questa canzone è stata generata o remixata da una AI?",
             "options": [
                 "Si",
                 "No"
@@ -25,8 +37,8 @@
             "showCorrectAnswer": true
         },
         {
-            "audioSource": "/data/yogurt.mp3",
-            "question": "(3) Questa canzone sullo <u>Yogurt</u> è stata generata da una IA?",
+            "audioSource": "/data/disconnextion-no-ai.mp3",
+            "question": "(4) Questa canzone è stata generata o remixata da una AI?",
             "options": [
                 "Si",
                 "No"
@@ -37,8 +49,8 @@
             "showCorrectAnswer": true
         },
         {
-            "audioSource": "/data/conan.mp3",
-            "question": "(4) Questa canzone per un <u>Anime</u> è stata generata da una IA?",
+            "audioSource": "/data/pokemon-v5-ai.mp3",
+            "question": "(5) Questa canzone è stata generata o remixata da una AI?",
             "options": [
                 "Si",
                 "No"
@@ -49,8 +61,8 @@
             "showCorrectAnswer": true
         },
         {
-            "audioSource": "/data/muffins.mp3",
-            "question": "(5) Questa canzone sui <u>Muffin</u> è stata generata da una IA?",
+            "audioSource": "/data/qua-qua-ai.mp3",
+            "question": "(6) Questa canzone è stata generata o remixata da una AI?",
             "options": [
                 "Si",
                 "No"
@@ -61,8 +73,20 @@
             "showCorrectAnswer": true
         },
         {
-            "audioSource": "/data/rossana.mp3",
-            "question": "(6) Questo remix metal del cartone <u>Rossana</u> è stato generato da una IA?",
+            "audioSource": "/data/gatto-nero-no-ai.mp3",
+            "question": "(7) Questa canzone è stata generata o remixata da una AI?",
+            "options": [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart": true,
+            "answerIdx": 1,
+            "endLevel": false,
+            "showCorrectAnswer": true
+        },
+        {
+            "audioSource": "/data/banana-love-ai.mp3",
+            "question": "(8) Questa canzone è stata generata o remixata da una AI?",
             "options": [
                 "Si",
                 "No"
@@ -73,8 +97,8 @@
             "showCorrectAnswer": true
         },
         {
-            "audioSource": "/data/frozen.mp3",
-            "question": "(7) Questo remix rock del film <u>Frozen</u> è stato generato da una IA?",
+            "audioSource": "/data/con-le-mani-no-ai.mp3",
+            "question": "(9) Questa canzone è stata generata o remixata da una AI?",
             "options": [
                 "Si",
                 "No"
@@ -85,26 +109,14 @@
             "showCorrectAnswer": true
         },
         {
-            "audioSource": "/data/maiahiii.mp3",
-            "question": "(8) Questo <u>remix</u> è stato generato da una IA?",
+            "audioSource": "/data/AI_CARRA_RUMORE.mp3",
+            "question": "(10) Questa canzone è stata generata o remixata da una AI?",
             "options": [
                 "Si",
                 "No"
             ],
             "showAnswersAtStart": true,
-            "answerIdx": 1,
-            "endLevel": false,
-            "showCorrectAnswer": true
-        },
-        {
-            "audioSource": "/data/DojaSarabanDAI.mp3",
-            "question": "(9) Quale elemento della canzone è stato generato dalla IA?",
-            "options": [
-                "Il beat stile house",
-                "La voce"
-            ],
-            "showAnswersAtStart": true,
-            "answerIdx": 1,
+            "answerIdx": 0,
             "endLevel": false,
             "showCorrectAnswer": true
         },
