@@ -31,7 +31,7 @@ function formatString(totalMs) {
 
 function getScore(totalMs) {
     const seconds = (totalMs / 1000)
-    return Math.round(Math.max(0, 100 - 5 * Math.max(seconds - 1.5, 0)))
+    return Math.round(Math.max(0, 100 - 4 * Math.max(seconds - 3, 0)))
 }
 function getCurrentScore(totalMs) {
     return `Punteggio: ${getScore(totalMs)}`;
