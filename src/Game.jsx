@@ -21,6 +21,7 @@ import { db } from "./Database";
 import parse from 'html-react-parser'
 
 
+
 function formatString(totalMs) {
     const seconds = Math.floor(totalMs / 1000);
     const ms = Math.floor((totalMs - seconds * 1000) / 10);
@@ -57,7 +58,7 @@ function OptionGroup({ options, setAnswer, enabled, showCorrectAnswer, correctAn
             <Grid container spacing={2} justifyContent="space-evenly" alignItems="stretch">
                 {options.map((opt, i) => {
                     return (
-                        <Grid item key={opt} xs={width} justifyContent="center" sx={{ display: 'flex' }}>
+                        <Grid key={opt} size={width} justifyContent="center" sx={{ display: 'flex' }}>
                             <Option
                                 optionName={opt}
                                 onClick={(e) => { setAnswer(i) }}
@@ -133,8 +134,7 @@ const Game = () => {
 
     // const audioCorrect = new Audio(process.env.PUBLIC_URL + '/data/risposta corretta.m4a')
     // const audioWrong = new Audio(process.env.PUBLIC_URL + '/data/risposta sbagliata.m4a')
-
-    const [audio, setAudio] = useState(new Audio(process.env.PUBLIC_URL + audioSource))
+    const [audio, setAudio] = useState(new Audio(import.meta.env.BASE_URL.slice(0, -1) + audioSource))
     const stopwatch = useStopwatch();
 
     useEffect(() => {
@@ -155,7 +155,7 @@ const Game = () => {
 
     useEffect(() => {
         if (audioSource != "") {
-            let newAudio = new Audio(process.env.PUBLIC_URL + audioSource)
+            let newAudio = new Audio(import.meta.env.BASE_URL.slice(0, -1) + audioSource)
             newAudio.loop = true
             setAudio(newAudio)
         }
@@ -340,12 +340,12 @@ const Game = () => {
             </Box>
             <p>Premi play per cominciare</p>
             <Grid container justifyContent='center' alignItems='center' direction='row' columnSpacing={2}>
-                <Grid item xs={6} justifyContent="right" sx={{ display: 'flex', paddingRight: '30px' }}>
+                <Grid size={6} justifyContent="right" sx={{ display: 'flex', paddingRight: '30px' }}>
                     <Button sx={{ borderRadius: '100%', 'width': '100px', height: '100px', fontSize: '50px' }} variant="outlined" onClick={toggle}>
                         {audioPlaying ? <PauseIcon fontSize='1rem' /> : <PlayArrowIcon fontSize='1rem' />}
                     </Button>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid size={6}>
                     <Stopwatch stopwatch={stopwatch} />
                 </Grid>
             </Grid>
@@ -380,7 +380,7 @@ const Game = () => {
 
 
             <Grid container marginTop={10}>
-                <Grid item xs={12} justifyContent="center" display='flex'>
+                <Grid size={12} justifyContent="center" display='flex'>
                     <Pagination
                         page={currentLevel + 1}
                         count={levels.levels.length - 1}
