@@ -1,0 +1,133 @@
+{
+    "levels": [
+        {
+            "audioSource": "/data/city-cant-hold-us-no-ai.mp3",
+            "question": "(1) Questa canzone è stata generata o remixata da una AI?",
+            "options": [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart": true,
+            "answerIdx": 1,
+            "endLevel": false,
+            "showCorrectAnswer": true
+        },
+        {
+            "audioSource": "/data/AI_GrimeDubstep.mp3",
+            "question": "(2) Questa canzone è stata generata o remixata da una AI?",
+            "options": [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart": true,
+            "answerIdx": 0,
+            "endLevel": false,
+            "showCorrectAnswer": true
+        },
+        {
+            "audioSource": "/data/fur-elise-rock-no-ai.mp3",
+            "question": "(3) Questa canzone è stata generata o remixata da una AI?",
+            "options": [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart": true,
+            "answerIdx": 1,
+            "endLevel": false,
+            "showCorrectAnswer": true
+        },
+        {
+            "audioSource": "/data/disconnextion-no-ai.mp3",
+            "question": "(4) Questa canzone è stata generata o remixata da una AI?",
+            "options": [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart": true,
+            "answerIdx": 1,
+            "endLevel": false,
+            "showCorrectAnswer": true
+        },
+        {
+            "audioSource": "/data/pokemon-v5-ai.mp3",
+            "question": "(5) Questa canzone è stata generata o remixata da una AI?",
+            "options": [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart": true,
+            "answerIdx": 0,
+            "endLevel": false,
+            "showCorrectAnswer": true
+        },
+        {
+            "audioSource": "/data/qua-qua-ai.mp3",
+            "question": "(6) Questa canzone è stata generata o remixata da una AI?",
+            "options": [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart": true,
+            "answerIdx": 0,
+            "endLevel": false,
+            "showCorrectAnswer": true
+        },
+        {
+            "audioSource": "/data/gatto-nero-no-ai.mp3",
+            "question": "(7) Questa canzone è stata generata o remixata da una AI?",
+            "options": [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart": true,
+            "answerIdx": 1,
+            "endLevel": false,
+            "showCorrectAnswer": true
+        },
+        {
+            "audioSource": "/data/banana-love-ai.mp3",
+            "question": "(8) Questa canzone è stata generata o remixata da una AI?",
+            "options": [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart": true,
+            "answerIdx": 0,
+            "endLevel": false,
+            "showCorrectAnswer": true
+        },
+        {
+            "audioSource": "/data/con-le-mani-no-ai.mp3",
+            "question": "(9) Questa canzone è stata generata o remixata da una AI?",
+            "options": [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart": true,
+            "answerIdx": 1,
+            "endLevel": false,
+            "showCorrectAnswer": true
+        },
+        {
+            "audioSource": "/data/AI_CARRA_RUMORE.mp3",
+            "question": "(10) Questa canzone è stata generata o remixata da una AI?",
+            "options": [
+                "Si",
+                "No"
+            ],
+            "showAnswersAtStart": true,
+            "answerIdx": 0,
+            "endLevel": false,
+            "showCorrectAnswer": true
+        },
+        {
+            "audioSource": "",
+            "question": "",
+            "options": [],
+            "showAnswersAtStart": true,
+            "answerIdx": 0,
+            "endLevel": true,
+            "showCorrectAnswer": false
+        }
+    ]
+}

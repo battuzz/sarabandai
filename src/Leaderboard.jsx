@@ -22,47 +22,47 @@ const Leaderboard = ({ username = null }) => {
 
 
     useEffect(() => {
-        const fetchLeaderboard = async () => {
-            const querySnapshot = await getDocs(collection(db, "leaderboard"));
-            const entries = querySnapshot.docs.map((doc) => doc.data());
+        // const fetchLeaderboard = async () => {
+        //     const querySnapshot = await getDocs(collection(db, "leaderboard"));
+        //     const entries = querySnapshot.docs.map((doc) => doc.data());
 
 
-            // Remove duplicates by playerId, keep first occurrence
-            const seen = new Set()
-            const filtered_entries = entries.filter(entry => {
-                if (!entry.player_id) return true // keep entries without playerId
-                if (seen.has(entry.player_id)) return false
-                seen.add(entry.player_id)
-                return true
-            })
-            filtered_entries.sort((a, b) => a.score < b.score ? 1 : -1)
-            setLeaderboard(filtered_entries)
-        }
+        //     // Remove duplicates by playerId, keep first occurrence
+        //     const seen = new Set()
+        //     const filtered_entries = entries.filter(entry => {
+        //         if (!entry.player_id) return true // keep entries without playerId
+        //         if (seen.has(entry.player_id)) return false
+        //         seen.add(entry.player_id)
+        //         return true
+        //     })
+        //     filtered_entries.sort((a, b) => a.score < b.score ? 1 : -1)
+        //     setLeaderboard(filtered_entries)
+        // }
 
-        fetchLeaderboard()
-            .catch(console.error)
+        // fetchLeaderboard()
+        //     .catch(console.error)
 
 
         // Local storage version
-        // console.log('Fetching leaderboard!');
-        // var entries = JSON.parse(localStorage.getItem('LEADERBOARD2'))
-        // if (entries === null) {
-        //     entries = []
-        // }
+        console.log('Fetching leaderboard!');
+        var entries = JSON.parse(localStorage.getItem('LEADERBOARD2'))
+        if (entries === null) {
+            entries = []
+        }
 
         // Filter duplicates by entry.playerId, keep highest score
-        // let all_entries = entries.concat(baselines)
-        // console.log(all_entries)
-        // // Remove duplicates by playerId, keep first occurrence
-        // const seen = new Set()
-        // const filtered_entries = all_entries.filter(entry => {
-        //     if (!entry.player_id) return true // keep entries without playerId
-        //     if (seen.has(entry.player_id)) return false
-        //     seen.add(entry.player_id)
-        //     return true
-        // })
-        // filtered_entries.sort((a, b) => a.score < b.score ? 1 : -1)
-        // setLeaderboard(filtered_entries)
+        let all_entries = entries.concat(baselines)
+        console.log(all_entries)
+        // Remove duplicates by playerId, keep first occurrence
+        const seen = new Set()
+        const filtered_entries = all_entries.filter(entry => {
+            if (!entry.player_id) return true // keep entries without playerId
+            if (seen.has(entry.player_id)) return false
+            seen.add(entry.player_id)
+            return true
+        })
+        filtered_entries.sort((a, b) => a.score < b.score ? 1 : -1)
+        setLeaderboard(filtered_entries)
     }, [])
 
     return (
